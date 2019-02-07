@@ -1,11 +1,30 @@
 <form novalidate
     [formGroup]="formRegistro"
     (ngSubmit)="manejarFormulario()">
-    <p>Nombre</p> <input type="text"  formControlName= "nombre">
-    <p>Mail</p> <input type="text" formControlName= "email">
-    <p>Telefono</p> <input type="text" formControlName= "telefono">
-    <p>Fecha de nacimiento</p> <input type="text"  formControlName= "fechaNacimiento">
+    
+    <p>Nombre</p> 
+    <input type="text"  formControlName= "nombre">
+    <p *ngIf="formRegistro.controls.nombre.errors?.required && formRegistro.controls.nombre.dirty">El campo es requerido</p><!--&& para ponerle dos condicionales-->
+    <p *ngIf="formRegistro.controls.nombre.errors?.maxlength && formRegistro.controls.nombre.dirty">El campo nombre solo permite 15 caracteres y tu llevas {{formRegistro.controls['nombre'].errors?.maxlength.actualLength|json}} caracteres </p><!--formRegistro.controls.nombre.dirty vale para sacar un error si escribes algo y lo borras-->
+    
+    <p>Mail</p> 
+    <input type="text" formControlName= "email">
+    <p *ngIf="formRegistro.controls.email.errors?.required && formRegistro.controls.email.dirty">El campo es requerido</p><!--&& para ponerle dos condicionales-->
+    <p *ngIf="formRegistro.controls.email.errors?.pattern && formRegistro.controls.email.invalid">El campo debe ser un mail correcto</p>
+    
+    <p>Contraseña</p> 
+    <input type="password" formControlName= "password">
+
+    <p>Telefono</p> 
+    <input type="text" formControlName= "telefono">
+    
+    <p>Fecha de nacimiento</p> 
+    <input type="text"  formControlName= "fechaNacimiento">
+    <p *ngIf="formRegistro.controls.fechaNacimiento.errors?.required && formRegistro.controls.fechaNacimiento.dirty">El campo es requerido</p><!--&& para ponerle dos condicionales-->
+    <p *ngIf="formRegistro.controls.fechaNacimiento.errors?.fechanacimiento && formRegistro.controls.fechaNacimiento.dirty">la fecha tiene que ser 1980 y 2010</p>
+    
     <p>Dni</p> <input type="text"  formControlName= "dni"><br>
+    
     <button type="submit" [ngClass]="{'button-disabled': formRegistro.invalid}"[disabled]= "formRegistro.invalid">Enviar</button> <!--ng class metemos la clase de forma dinamica para poder cambiar el color dependiendo de si esta o no disable-->
 </form>
 

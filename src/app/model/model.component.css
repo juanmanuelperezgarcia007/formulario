@@ -4,10 +4,10 @@ p{
 form{
     margin-left: 30px
 }
-form input.ng-valid.ng-touched{
+form input.ng-valid.ng-dirty{
     border: 1px solid green
 }
-form input.ng-invalid.ng-touched{
+form input.ng-invalid.ng-dirty{
     border: 1px solid tomato
 }
 .button-disabled{
