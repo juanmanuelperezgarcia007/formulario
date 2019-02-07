@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { debounceTime, subscribeOn } from 'rxjs/operators'
+
 @Component({
   selector: 'app-model',
   templateUrl: './model.component.html',
   styleUrls: ['./model.component.css']
 })
 export class ModelComponent implements OnInit {
- 
+   
   formRegistro:FormGroup
   
   constructor() { }
@@ -25,8 +27,12 @@ export class ModelComponent implements OnInit {
       fechaNacimiento: new FormControl('',[this.fechaNacimientoValidator, Validators.required]),
       
       dni: new FormControl('',[Validators.required,Validators.pattern(/(0?[1-9]|[1-9][0-9])[0-9]{6}(-| )?[trwagmyfpdxbnjzsqvhlcke]/)])
-
     })
+
+    let nombreControl = this.formRegistro.controls.nombre
+      nombreControl.valueChanges.pipe(debounceTime(500)).subscribe((value)=>{
+        console.log(value)//pipe(debounceTime(500)) se utiliza para comporobar si en nuestra base de datos hay alguna dato igual
+      })
   }
   manejarFormulario(){
     console.log(this.formRegistro.value)
