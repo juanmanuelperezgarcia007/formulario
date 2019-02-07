@@ -11,5 +11,7 @@ export class TemplateComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  manejarFormulario(formValue){
+    console.log(formValue)
+  }
 }

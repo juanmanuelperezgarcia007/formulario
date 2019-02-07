@@ -1,3 +1,8 @@
-<p>
-  template works!
-</p>
+<form novalidate
+    #formularioPersona ="ngForm"
+    (ngSubmit)="manejarFormulario(formularioPersona.value)">
+    <p>Nombre</p> <input type="text" name="nombre" ngModel>
+    <p>Apellidos</p> <input type="text" name="apellidos" ngModel>
+    <p>Edad</p> <input type="text" name="edad" ngModel><br>
+    <input type="submit" value="Enviar">
+</form>
