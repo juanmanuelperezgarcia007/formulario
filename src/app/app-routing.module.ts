@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { TemplateComponent } from './template/template.component';
-
+import { ModelComponent } from './model/model.component'
 const routes: Routes = [
-  {path:"", redirectTo: '/tempalte',pathMatch:'full'},
+  {path:"", redirectTo: '/template',pathMatch:'full'},
   { path: 'template', component:TemplateComponent },
+  { path: 'model', component:ModelComponent },
   {path: "**", redirectTo: '/template'}
 ];
 

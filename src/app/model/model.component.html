@@ -1,0 +1,11 @@
+<form novalidate
+    [formGroup]="formRegistro"
+    (ngSubmit)="manejarFormulario()">
+    <p>Nombre</p> <input type="text"  formControlName= "nombre">
+    <p>Mail</p> <input type="text" formControlName= "email">
+    <p>Telefono</p> <input type="text" formControlName= "telefono">
+    <p>Fecha de nacimiento</p> <input type="text"  formControlName= "fechaNacimiento">
+    <p>Dni</p> <input type="text"  formControlName= "dni"><br>
+    <button type="submit" [ngClass]="{'button-disabled': formRegistro.invalid}"[disabled]= "formRegistro.invalid">Enviar</button> <!--ng class metemos la clase de forma dinamica para poder cambiar el color dependiendo de si esta o no disable-->
+</form>
+

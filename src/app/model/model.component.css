@@ -1,0 +1,19 @@
+p{
+    font-weight: bolder
+}
+form{
+    margin-left: 30px
+}
+form input.ng-valid.ng-touched{
+    border: 1px solid green
+}
+form input.ng-invalid.ng-touched{
+    border: 1px solid tomato
+}
+.button-disabled{
+    background-color: tomato
+}
+button{
+    background-color:green;
+    
+}

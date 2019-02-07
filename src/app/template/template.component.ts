@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-template',
   templateUrl: './template.component.html',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TemplateComponent implements OnInit {
 
+  
+
   constructor() { }
 
   ngOnInit() {
+  
   }
   manejarFormulario(formValue){
     console.log(formValue)
